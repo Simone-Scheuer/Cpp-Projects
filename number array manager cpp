@@ -1,0 +1,41 @@
+#include <iostream>
+#include <limits> // For numeric_limits
+
+int main() {
+    const int SIZE = 10; // Constant for the size of the array
+    int numbers[SIZE];  // Declare an array of ten integers
+    int max = std::numeric_limits<int>::min(); // Initialize max with the smallest possible int
+    int min = std::numeric_limits<int>::max(); // Initialize max with the smallest possible int 
+    int sum = 0;
+
+    std::cout << "Please enter " << SIZE << " numbers:\n";
+
+    // Loop to read 10 numbers into the array and track the maximum
+    for (int i = 0; i < SIZE; i++) {
+        std::cout << "Enter number " << (i + 1) << ": ";
+        std::cin >> numbers[i]; // Read each number into the array
+
+        // Update the maximum if the current number is greater than max
+        if (numbers[i] > max) {
+            max = numbers[i];
+        }
+        if (numbers[i] < min) {
+            min = numbers[i];
+        }
+        sum += numbers[i];
+    }
+
+    // Display the numbers and the maximum
+    std::cout << "You entered:\n";
+    for (int i = 0; i < SIZE; i++) {
+        std::cout << numbers[i] << " ";
+    }
+    float avg = 0;
+    avg = sum/10;
+    std::cout << "\nMaximum number: " << max << std::endl;
+    std::cout << "\nMinimum number: " << min << std::endl;
+    std::cout << "\nSum: " << sum << std::endl;
+    std::cout << "\nAvg: " << avg << std::endl;
+
+    return 0;
+}
